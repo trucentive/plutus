@@ -11,7 +11,7 @@ class CreatePlutusTables < ActiveRecord::Migration[4.2]
 
     create_table :plutus_entries do |t|
       t.string :description
-      t.date :date
+      t.datetime :date
       t.integer :commercial_document_id
       t.string :commercial_document_type
 
