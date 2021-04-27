@@ -1,5 +1,6 @@
+# This migration comes from plutus (originally 20160422010135)
 class CreatePlutusTables < ActiveRecord::Migration[4.2]
-  def self.up
+  def change
     create_table :plutus_accounts do |t|
       t.string :name
       t.string :type
@@ -11,7 +12,7 @@ class CreatePlutusTables < ActiveRecord::Migration[4.2]
 
     create_table :plutus_entries do |t|
       t.string :description
-      t.datetime :date
+      t.date :date
       t.integer :commercial_document_id
       t.string :commercial_document_type
 
@@ -29,11 +30,5 @@ class CreatePlutusTables < ActiveRecord::Migration[4.2]
     add_index :plutus_amounts, :type
     add_index :plutus_amounts, [:account_id, :entry_id]
     add_index :plutus_amounts, [:entry_id, :account_id]
-  end
-
-  def self.down
-    drop_table :plutus_accounts
-    drop_table :plutus_entries
-    drop_table :plutus_amounts
   end
 end

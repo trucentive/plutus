@@ -1,4 +1,4 @@
-Plutus
+        Plutus
 =================
 [![Build Status](https://travis-ci.org/mbulat/plutus.svg?branch=master)](https://travis-ci.org/mbulat/plutus) [![Coverage Status](https://coveralls.io/repos/github/mbulat/plutus/badge.svg?branch=master)](https://coveralls.io/github/mbulat/plutus?branch=master)
 
@@ -7,8 +7,8 @@ The Plutus plugin is a Ruby on Rails Engine which provides a double entry accoun
 Compatibility
 =============
 
-* Ruby versions: MRI 2.2.2+ (should work with earlier versions if using Rails 4)
-* Rails versions: ~> 5.0, ~> 4.0
+* Ruby versions: MRI 2.5+
+* Rails versions: ~> 6.0
 
 For earlier versions, and upgrading, please see the section titled [Previous Versions](https://github.com/mbulat/plutus#previous-versions)
 
@@ -16,9 +16,7 @@ Installation
 ============
 
 - Add the gem to your Gemfile `gem "plutus"`
-
-- generate migration files `rails g plutus`
-
+- generate migration files `rake plutus:install:migrations`
 - run migrations `rake db:migrate`
 
 Overview
@@ -269,7 +267,7 @@ entry = Plutus::Entry.build(
 Multitenancy Support
 =====================
 
-Plutus supports multitenant applications. Multitenancy is acheived by associating all Accounts under `Plutus::Account` with a "Tenant" object (typically some model in your Rails application). To add multi-tenancy support to Plutus, you must do the following:
+Plutus supports multitenant applications. Multitenancy is achieved by associating all Accounts under `Plutus::Account` with a "Tenant" object (typically some model in your Rails application). To add multi-tenancy support to Plutus, you must do the following:
 
 - Generate the migration which will add `tenant_id` to the plutus accounts table
 
